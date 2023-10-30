@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
-
-//Routes
+const Post = require('../models/Post')
+/**
+ * GET /
+ * HOME
+ */
 router.get('',(req, res) => {
     const locals = {
         title: "Nodejs Blog",
@@ -9,6 +12,31 @@ router.get('',(req, res) => {
     }
     res.render('index', { locals });
 });
+
+
+
+function insertPostData () {
+    Post.insertMany([
+        {
+            title: "Building a Blog",
+            body: "this is a body text"
+        },
+        {
+            title: "Make a Simple Arduino Projects",
+            body: "emoticon dot Matrix"
+        }
+    ])
+}
+
+insertPostData();
+
+
+
+
+
+
+
+
 
 router.get('/about',(req, res) => {
     res.render('about');
