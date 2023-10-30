@@ -14,7 +14,7 @@ router.get('',(req, res) => {
 });
 
 
-
+/*
 function insertPostData () {
     Post.insertMany([
         {
@@ -29,7 +29,7 @@ function insertPostData () {
 }
 
 insertPostData();
-
+*/
 
 
 
