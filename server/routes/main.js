@@ -5,12 +5,19 @@ const Post = require('../models/Post')
  * GET /
  * HOME
  */
-router.get('',(req, res) => {
+router.get('', async (req, res) => {
     const locals = {
         title: "Nodejs Blog",
         description: "Simple Blog created with Nodejs, Express & MongoDb."
     }
-    res.render('index', { locals });
+
+    try {
+        const data = await Post.find();
+        res.render('index', { locals, data });
+    } catch(error) {
+        console.log(error);
+    }
+   
 });
 
 
